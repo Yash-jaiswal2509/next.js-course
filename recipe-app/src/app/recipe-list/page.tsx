@@ -1,15 +1,18 @@
 import RecipeList from "@/components/recipe-list";
 
-async function fetchRecipeLsit(){
-    try {
-        const response  = await fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey');
-    } catch (error) {
-        console.error(error);   
-    }
+async function fetchRecipeList() {
+  try {
+    const response = await fetch("https://dummyjson.com/recipes");
+    const result = await response.json();
+    return result?.recipes;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-const page = async () => {
-  return <RecipeList />;
+const page = async() => {
+  const recipeList = await fetchRecipeList();
+  return <RecipeList recipeList={recipeList} />;
 };
 
 export default page;
