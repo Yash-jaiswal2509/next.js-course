@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 const Loading = () => {
   return (
     <div className=" w-full min-h-screen">
-      <Skeleton />
+      <Skeleton color="black" className="w-full" />
     </div>
   );
 };
